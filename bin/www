@@ -5,14 +5,14 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('bestroute:server');
+var debug = require('debug')('hshacks-iv:server');
 var http = require('http');
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
+var port = 'https://hshacks-iv-patrickwang3.c9users.io';
 app.set('port', port);
 
 /**
