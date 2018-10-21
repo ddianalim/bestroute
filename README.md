@@ -48,7 +48,7 @@ shows BEST ROUTE
 
 ### Extra
 delete feature
-
+tells user their username/password is incorrect.
 
 ## Other
 - Google Maps API
