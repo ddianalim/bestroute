@@ -3,6 +3,7 @@ const auth = require('./helpers/auth');
 const Trip = require('../models/trip');
 const Participant = require('../models/participant');
 const participants = require('./participants');
+const maps = require('../maps/maps.js');
 const User = require('../models/user');
 
 const router = express.Router();
@@ -35,8 +36,11 @@ router.get('/:id', auth.requireLogin, (req, res, next) => {
 
      Participant.find({ trip: trip }, function(err, participants) {
           if(err) { console.error(err) };
-
-    res.render('trips/show', { trip, participants });
+          let locations = [];
+          participants.forEach(participant=> {
+            locations.push(participant.address);
+          })
+    res.render('trips/show', { trip, participants: participants, maps: maps, testGeometry: JSON.stringify(maps.getGeometry(maps.geocodes(locations)))});
     });
   });
 });
