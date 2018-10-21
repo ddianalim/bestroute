@@ -40,6 +40,7 @@ router.get('/:id', auth.requireLogin, (req, res, next) => {
           participants.forEach(participant=> {
             locations.push(participant.address);
           })
+
     res.render('trips/show', { trip, participants: participants, maps: maps, testGeometry: JSON.stringify(maps.getGeometry(maps.geocodes(locations)))});
     });
   });
