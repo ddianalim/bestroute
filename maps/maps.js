@@ -14,7 +14,7 @@ maps.driverPosition = () => {
     return geocode('2100 University Avenue, East Palo Alto');
 };
 maps.getEmbed = (route) => {
-    
+
 };
 maps.getBestRoute = (arr) => {
     var str = "";
@@ -76,8 +76,8 @@ maps.getBestRouteBySearch = (arr) => {
 //     }
 // };
 function bestRouteJSON(str) {
-    return getJSON(`https://api.mapbox.com/optimized-trips/v1/mapbox/driving/${str.slice(0, str.length - 1)}?source=first&destination=last&access_token=${key}`);
-} 
+    return getJSON(`https://api.mapbox.com/optimized-trips/v1/mapbox/driving/${str.slice(0, str.length - 1)}?source=first&geometries=geojson&destination=last&access_token=${key}`);
+}
 function tripDuration(arr) {
     return maps.getBestRoute(arr).trips[0].duration;
 }
